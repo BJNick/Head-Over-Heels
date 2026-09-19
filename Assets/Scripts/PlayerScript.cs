@@ -48,14 +48,19 @@ public class PlayerScript : MonoBehaviour {
             velX *= slideSpeed;
         }
         
+        var raycastHit = Physics2D.Raycast(transform.position, Vector2.down, 2.2f, LayerMask.GetMask("Default"));
+        bool grounded = raycastHit && raycastHit.collider;
+        animator.SetBool("Fall", !grounded && rb.linearVelocityY < 0);
+        
         smoothVelocity = Mathf.Lerp(smoothVelocity, velX, Time.deltaTime * smoothSpeed);
         
         rb.linearVelocityX = smoothVelocity;
         
         animator.speed = Input.GetAxis("Horizontal")+1;
         
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (grounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            animator.SetTrigger("Jump");
         }
         if (Input.GetKeyDown(KeyCode.R)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
