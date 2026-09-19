@@ -8,17 +8,22 @@ public class PlayerScript : MonoBehaviour {
     
     private Vector3 startPosition;
     
+    private Animator animator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         startPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update() {
-        float velX = (Input.GetAxis("Horizontal") * speed);
+        float velX = ((Input.GetAxis("Horizontal")+1) * speed);
         rb.linearVelocityX = velX * speed;
+        
+        animator.speed = Input.GetAxis("Horizontal")+1;
         
         if (Input.GetKeyDown(KeyCode.Space)) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
