@@ -18,6 +18,9 @@ public class PlayerScript : MonoBehaviour {
     
     private Animator animator;
     
+    private float smoothVelocity = 0f;
+    public float smoothSpeed = 10f;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +28,7 @@ public class PlayerScript : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         startPosition = transform.position;
+        smoothVelocity = speed;
     }
 
     // Update is called once per frame
@@ -36,7 +40,9 @@ public class PlayerScript : MonoBehaviour {
             velX *= slideSpeed;
         }
         
-        rb.linearVelocityX = velX * speed;
+        smoothVelocity = Mathf.Lerp(smoothVelocity, velX, Time.deltaTime * smoothSpeed);
+        
+        rb.linearVelocityX = smoothVelocity;
         
         animator.speed = Input.GetAxis("Horizontal")+1;
         
