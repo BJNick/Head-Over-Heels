@@ -20,6 +20,13 @@ public class PlayerScript : MonoBehaviour {
     
     private float smoothVelocity = 0f;
     public float smoothSpeed = 10f;
+
+    public GameObject projectilePrefab;
+    
+    public Vector3 projectileSpawnOffset = new Vector3(1f, 0f, 0.1f);
+    public float projectileAngle = 0f;
+    
+    public float projectileBoost = 10f;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,5 +71,15 @@ public class PlayerScript : MonoBehaviour {
             isSliding = false;
             slideStopTime = Time.time;
         }
+        
+        if (Input.GetKeyDown(KeyCode.F) && !HeelProjectile.heelInScene) {
+            var obj = Instantiate(projectilePrefab, transform.position + projectileSpawnOffset, Quaternion.identity);
+            obj.GetComponent<Rigidbody2D>().linearVelocity = (rb.linearVelocityY * Vector3.up) + (smoothVelocity + projectileBoost) * (Quaternion.Euler(0f, 0f, projectileAngle) * Vector3.right);
+        }
+    }
+
+    public void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + (Vector3)projectileSpawnOffset, transform.position + (Vector3)projectileSpawnOffset + Quaternion.Euler(0f, 0f, projectileAngle) * Vector3.right);
     }
 }
