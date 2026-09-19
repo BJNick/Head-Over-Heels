@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
     private Rigidbody2D rb;
@@ -57,8 +58,7 @@ public class PlayerScript : MonoBehaviour {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         if (Input.GetKeyDown(KeyCode.R)) {
-            transform.position = startPosition;
-            rb.linearVelocity = Vector3.zero;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         if (Input.GetKey(KeyCode.S) && !isSliding && (Time.time - slideStopTime >= slideTimeout)) {
             animator.SetBool("Slide", true);
