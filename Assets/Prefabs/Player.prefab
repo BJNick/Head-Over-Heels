@@ -102,13 +102,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3467776013054993512}
   - component: {fileID: 2353438661412217349}
-  - component: {fileID: 7397756553052013818}
+  - component: {fileID: 8358868621838164138}
   - component: {fileID: 4541087531118970787}
   - component: {fileID: 8408803853166138613}
   - component: {fileID: 6382968834239207021}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,8 +192,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!61 &7397756553052013818
-BoxCollider2D:
+--- !u!70 &8358868621838164138
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -202,7 +202,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ec9a6716a5110674e96d50204d73bb8a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -226,18 +226,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.13278759, y: 0.40086365}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5294583, y: 2.2220001}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.5057828, y: 4.300617}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.1327876, y: 0.4008636}
+  m_Size: {x: 2.505783, y: 4.300617}
+  m_Direction: 0
 --- !u!50 &4541087531118970787
 Rigidbody2D:
   serializedVersion: 5
@@ -277,12 +268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f2d029a0243724aaee17619f96fbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  speed: 20
+  speed: 16
   jumpForce: 20
-  slideSpeed: 2
+  slideSpeed: 1.5
   minSlideDuration: 0.2
-  maxSlideDuration: 0.5
-  slideTimeout: 0.5
+  maxSlideDuration: 0.7
+  slideTimeout: 0.2
   smoothSpeed: 5
   projectilePrefab: {fileID: 7210104412840103927, guid: 6ea3c5fc2e636d7469b5c8c4ed10d3d7, type: 3}
   projectileSpawnOffset: {x: 0.81, y: -0.76, z: 0.1}
@@ -322,7 +313,7 @@ GameObject:
   - component: {fileID: 1386206643290999334}
   - component: {fileID: 6613815825898266861}
   m_Layer: 6
-  m_Name: Rain
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4969,7 +4960,7 @@ Transform:
   m_GameObject: {fileID: 6842998800681590738}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 33.159996, y: 10, z: 9}
+  m_LocalPosition: {x: 33.2, y: 13.6, z: 9}
   m_LocalScale: {x: 1.5000001, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5297,7 +5288,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2
+      value: 4
       mode: 0
       spread: 0
       speed:
@@ -5344,7 +5335,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 3
       minMaxState: 0
-      scalar: 20
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7406,7 +7397,7 @@ Transform:
   m_GameObject: {fileID: 7803066584251027885}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.62, y: 0, z: 0}
+  m_LocalPosition: {x: -10.03, y: 0, z: 0}
   m_LocalScale: {x: 3.2552, y: 3.2552, z: 3.2552}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7548,8 +7539,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.5964483}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.75, y: 0.39}
+  m_EdgeRadius: 0.1
 --- !u!1 &8546707849965461375
 GameObject:
   m_ObjectHideFlags: 0
@@ -7577,7 +7568,7 @@ Transform:
   m_GameObject: {fileID: 8546707849965461375}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.01, y: 1.11, z: 5}
+  m_LocalPosition: {x: 20.73, y: 1.49, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7618,8 +7609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea78d3d03af14a479c42f38c8362cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragonTail
-  startPosition: {x: 21.01, y: 5.24, z: 9}
-  offsetValue: -0.5
-  smoothnessValue: 0.01
+  startPosition: {x: 20.73, y: 1.49, z: 5}
+  offsetValue: -5
+  smoothnessValue: 0.005
   maxOffset: 10
   defaultOffset: 16
+  defaultSpeed: 20
