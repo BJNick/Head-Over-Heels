@@ -8,7 +8,7 @@ public class ShieldEnemy : MonoBehaviour
     float velX;
     Camera cam;
     float camera_width;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,7 +18,6 @@ public class ShieldEnemy : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         playerXCoord = GameObject.Find("Player").transform.position.x;
