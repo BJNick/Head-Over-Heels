@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
     public GameObject cloudPrefab;
     public float verticalRange = 5f;
+    public float verticalOffset = 0f;
     public float horizontalOffset = 20f;
     
     public float spawnInterval = 3f;
@@ -36,10 +38,15 @@ public class CloudSpawner : MonoBehaviour
     
     private void SpawnCloud()
     {
-        float randomY = Random.Range(-verticalRange, verticalRange);
+        float randomY = Random.Range(-verticalRange, verticalRange) + verticalOffset;
         Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x + horizontalOffset, randomY, spawnZ);
         float randomScale = Random.Range(minScale, maxScale);
         var obj = Instantiate(cloudPrefab, spawnPosition, Quaternion.identity);
         obj.transform.localScale = new Vector3(randomScale, randomScale, 1f);
+    }
+
+    void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(new Vector3(Camera.main.transform.position.x + horizontalOffset, -verticalRange+verticalOffset, 0f), new Vector3(Camera.main.transform.position.x + horizontalOffset, verticalRange+verticalOffset, 0f));
     }
 }
