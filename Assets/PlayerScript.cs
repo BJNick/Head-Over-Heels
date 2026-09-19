@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.R)) {
             transform.position = startPosition;
+            rb.linearVelocity = Vector3.zero;
         }
     }
 }
