@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2382d88bc2888094e9fba64e11b23189
+guid: e5524312a0a98dc47b98412cba5d4864
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7390322997404680596
-    second: animations_princess3_0
+      213: 7551570728145376780
+    second: animations_princessslide_with_smear_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: animations_princess3_0
+      name: animations_princessslide_with_smear_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 34
-        width: 558
-        height: 668
+        x: 8
+        y: 18
+        width: 686
+        height: 683
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6e3b44b36c407990800000000000000
-      internalID: -7390322997404680596
+      spriteID: c06d75b31919cc860800000000000000
+      internalID: 7551570728145376780
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      animations_princess3_0: -7390322997404680596
+      animations_princessslide_with_smear_0: 7551570728145376780
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

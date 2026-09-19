@@ -32,5 +32,11 @@ public class PlayerScript : MonoBehaviour {
             transform.position = startPosition;
             rb.linearVelocity = Vector3.zero;
         }
+        if (Input.GetKeyDown(KeyCode.S)) {
+            animator.SetBool("Slide", true);
+        }
+        if (Input.GetKeyUp(KeyCode.S)) {
+            animator.SetBool("Slide", false);
+        }
     }
 }
