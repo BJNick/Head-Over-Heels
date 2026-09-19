@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HeelProjectile : MonoBehaviour {
     
-    public static bool heelInScene = false;
+    public static GameObject heelInScene = null;
     
     private Rigidbody2D rb;
 
@@ -24,7 +24,7 @@ public class HeelProjectile : MonoBehaviour {
         }
         smear = transform.Find("Smear").gameObject;
         spawnTime = Time.time;
-        heelInScene = true;
+        heelInScene = gameObject;
     }
 
     // Update is called once per frame
@@ -40,15 +40,21 @@ public class HeelProjectile : MonoBehaviour {
         if (velVector.magnitude < 20f || Time.time - spawnTime > fallOffAfter || maxHits <= 0) {
             rb.GetComponent<Collider2D>().enabled = false;
             smear.SetActive(false);
-            heelInScene = false;
+            if (heelInScene == this.gameObject) {
+                heelInScene = null;
+            }
         }
 
         if (Camera.main.transform.position.y - transform.position.y > 30) {
-            heelInScene = false;
+            if (heelInScene == this.gameObject) {
+                heelInScene = null;
+            }
             Destroy(this.gameObject);
         }
         if (Mathf.Abs(Camera.main.transform.position.x - transform.position.x) > 30) {
-            heelInScene = false;
+            if (heelInScene == this.gameObject) {
+                heelInScene = null;
+            }
             Destroy(this.gameObject);
         }
     }
