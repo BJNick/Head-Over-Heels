@@ -8,6 +8,7 @@ public class DragonTail : MonoBehaviour
     public float smoothnessValue = 0.5f;
     public float maxOffset = 10f;
     public float defaultOffset = 1f;
+    public float defaultSpeed = 20f;
     
     private Rigidbody2D playerBody;
     
@@ -21,7 +22,7 @@ public class DragonTail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var offset = Mathf.Clamp(playerBody.linearVelocityX * offsetValue + defaultOffset, 0, maxOffset);
+        var offset = Mathf.Clamp((playerBody.linearVelocityX - defaultSpeed) * offsetValue + defaultOffset, 0, maxOffset);
         transform.localPosition = Vector3.Lerp(transform.localPosition, startPosition + offset*Vector3.right, smoothnessValue);
     }
 }
