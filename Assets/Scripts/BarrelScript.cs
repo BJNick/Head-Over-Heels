@@ -22,12 +22,12 @@ public class BarrelScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!dead && other.gameObject.layer == LayerMask.NameToLayer("Heel")) {
+        if (!dead && other.gameObject.name == "HeelCollider") {
             dead = true;
             barrelSprite.enabled = false;
             collider.enabled = false;
             barrelExplosion.Play();
-            Invoke("DestroyBarrel", 0.5f);
+            Destroy(gameObject, 3f);
         }
     }
 }
