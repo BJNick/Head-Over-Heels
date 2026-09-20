@@ -14,6 +14,8 @@ public class DialogClicker : MonoBehaviour {
     public Color regularFont = Color.white;
     public Color dimmedFont = Color.gray;
     
+    public int nextScene = 0;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         SetPageAndParagraph(setPage, setChild);
@@ -79,7 +81,7 @@ public class DialogClicker : MonoBehaviour {
     }
     
     public void OnStartGame() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(nextScene);
     }
     
 }

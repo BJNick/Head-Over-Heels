@@ -2988,6 +2988,7 @@ MonoBehaviour:
   setChild: 0
   regularFont: {r: 1, g: 1, b: 1, a: 1}
   dimmedFont: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  nextScene: 1
 --- !u!1 &1448322780
 GameObject:
   m_ObjectHideFlags: 0
