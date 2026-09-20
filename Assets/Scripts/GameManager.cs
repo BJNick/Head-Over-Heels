@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     private bool isGameOver = false;
     public GameObject gameOverPanel;
-    private Vector3 checkpointCoords;
+    public Vector3 checkpointCoords;
     private GameObject player;
 
     void Awake()
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         // Set the active instance and protect it from scene unloads
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Start()
@@ -62,7 +63,18 @@ public class GameManager : MonoBehaviour
 
     public void SaveCheckpointCoords()
     {
+        player = GameObject.Find("Player");
         checkpointCoords = player.transform.position;
         print("New Checkpoint Coords: " + checkpointCoords);
+    }
+
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        Debug.Log("Checkpoint Coords on Scene Load: " + checkpointCoords);
+        player = GameObject.Find("Player");
+        if(player && checkpointCoords != Vector3.zero)
+        {
+            player.transform.position = checkpointCoords;
+        }
     }
 }

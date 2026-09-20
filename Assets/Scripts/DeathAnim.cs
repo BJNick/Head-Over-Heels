@@ -20,6 +20,10 @@ public class DeathAnim : MonoBehaviour
     }
     
     public void PlayDeathAnimation() {
+        animator = GetComponent<Animator>();
+        if (!this || !animator) {
+            return;
+        }
         animator.SetTrigger("Death");
     }
     
