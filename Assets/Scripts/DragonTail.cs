@@ -23,6 +23,6 @@ public class DragonTail : MonoBehaviour
     void Update()
     {
         var offset = Mathf.Clamp((playerBody.linearVelocityX - defaultSpeed) * offsetValue + defaultOffset, 0, maxOffset);
-        transform.localPosition = Vector3.Lerp(transform.localPosition, startPosition + offset*Vector3.right, smoothnessValue);
+        transform.localPosition = Vector3.Lerp(transform.localPosition, startPosition + offset*Vector3.right, smoothnessValue*Time.deltaTime);
     }
 }

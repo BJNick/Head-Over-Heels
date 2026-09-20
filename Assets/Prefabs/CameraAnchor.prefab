@@ -6515,7 +6515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragonTail
   startPosition: {x: 20.73, y: 1.49, z: 5}
   offsetValue: -5
-  smoothnessValue: 0.005
+  smoothnessValue: 0.25
   maxOffset: 10
   defaultOffset: 16
   defaultSpeed: 20
