@@ -29,10 +29,12 @@ public class EnemyProjectileWeapon : MonoBehaviour
         }
 
         // check if player is on screen
-        playerXCoord = GameObject.Find("Player").transform.position.x;
-        if((rb.position.x - playerXCoord) <= camera_width && shotTimer <= 0f){
+        if(rb != null){
+            playerXCoord = GameObject.Find("Player").transform.position.x;
+            if((rb.position.x - playerXCoord) <= camera_width && shotTimer <= 0f){
             Shoot();
             shotTimer = shotInterval;
+        }
         }
     }
 
