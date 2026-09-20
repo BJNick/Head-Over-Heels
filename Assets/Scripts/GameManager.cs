@@ -18,13 +18,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver(){
-        print("Game Over Called");
         if(isGameOver) return;
         isGameOver = true;
         gameOverPanel.SetActive(true);
+        Time.timeScale = 0f; 
     }
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f; 
     }
 }

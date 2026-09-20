@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float lifeSpan = 5f;
+    [SerializeField] private GameObject gameManager;
 
     void Start()
     {
@@ -11,7 +12,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger){
         if(trigger.CompareTag("Player")){
-            print("The player has died!");
+            GameManager.instance.GameOver();
         }
         Destroy(gameObject);
     }
