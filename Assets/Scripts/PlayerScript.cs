@@ -66,7 +66,7 @@ public class PlayerScript : MonoBehaviour {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             animator.SetTrigger("Jump");
         }
-        Debug.Log(Input.GetButton("Slide") + " " + isSliding + " " + (Time.time - slideStopTime) + " " + slideTimeout);
+        //Debug.Log(Input.GetButton("Slide") + " " + isSliding + " " + (Time.time - slideStopTime) + " " + slideTimeout);
         if ((Input.GetButton("Slide")) && !isSliding && (Time.time - slideStopTime >= slideTimeout)) {
             animator.SetBool("Slide", true);
             slideStartTime = Time.time;
