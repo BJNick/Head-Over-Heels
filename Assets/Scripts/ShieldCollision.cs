@@ -7,7 +7,7 @@ public class ShieldCollision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger){
         if(trigger.CompareTag("Player")){
-            GameManager.instance.GameOver();
+            GameManager.Instance.GameOver();
         }
         else{
             print("BLOCKED");

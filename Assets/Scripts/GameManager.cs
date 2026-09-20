@@ -3,18 +3,40 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+     public static GameManager Instance { get; private set; }
 
     private bool isGameOver = false;
     public GameObject gameOverPanel;
+    private Vector3 checkpointCoords;
+    [SerializeField] private GameObject player;
+
+    void Awake()
+    {
+        // If an instance already exists and it's not this one, destroy the duplicate
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // Set the active instance and protect it from scene unloads
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
         if(!isGameOver){
             gameOverPanel.SetActive(false);
         }
-
-        instance = this;
+        print(checkpointCoords + "...");
+        print(checkpointCoords);
+        if(checkpointCoords != Vector3.zero)
+        {
+            player.transform.position = checkpointCoords;
+        }
+        print("Player position: " + player.transform.position);
+        Time.timeScale = 1f; 
     }
 
     void Update() {
@@ -32,6 +54,11 @@ public class GameManager : MonoBehaviour
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f; 
+    }
+
+    public void SaveCheckpointCoords()
+    {
+        checkpointCoords = player.transform.position;
+        print("New Checkpoint Coords: " + checkpointCoords);
     }
 }
