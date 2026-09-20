@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false;
     public GameObject gameOverPanel;
     private Vector3 checkpointCoords;
-    [SerializeField] private GameObject player;
+    private GameObject player;
 
     void Awake()
     {
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Player");
         if(!isGameOver){
             //gameOverPanel.SetActive(false);
         }
@@ -53,7 +54,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f; 
     }
 
-    public void Restart(){
+    public void Restart() {
+        isGameOver = false;
+        Time.timeScale = 1f; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

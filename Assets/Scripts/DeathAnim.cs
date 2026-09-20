@@ -24,6 +24,6 @@ public class DeathAnim : MonoBehaviour
     }
     
     public void AnimationDone() {
-        GameManager.instance.Restart();
+        GameManager.Instance.Restart();
     }
 }
