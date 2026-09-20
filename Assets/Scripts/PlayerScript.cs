@@ -48,9 +48,13 @@ public class PlayerScript : MonoBehaviour {
             velX *= slideSpeed;
         }
         
-        var raycastHit = Physics2D.Raycast(transform.position, Vector2.down, 2.2f, LayerMask.GetMask("Default"));
+        var raycastHit = Physics2D.Raycast(transform.position+Vector3.left * (1.1f), Vector2.down, 2.2f, LayerMask.GetMask("Default"));
+        if (!raycastHit) {
+            raycastHit = Physics2D.Raycast(transform.position+Vector3.right * (1.1f), Vector2.down, 2.2f, LayerMask.GetMask("Default"));
+        }
         bool grounded = raycastHit && raycastHit.collider;
         animator.SetBool("Fall", !grounded && rb.linearVelocityY < 0);
+        animator.SetBool("Grounded", grounded);
         
         smoothVelocity = Mathf.Lerp(smoothVelocity, velX, Time.deltaTime * smoothSpeed);
         
@@ -86,5 +90,6 @@ public class PlayerScript : MonoBehaviour {
     public void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + (Vector3)projectileSpawnOffset, transform.position + (Vector3)projectileSpawnOffset + Quaternion.Euler(0f, 0f, projectileAngle) * Vector3.right);
+        Gizmos.DrawLine(transform.position + Vector3.left * (1.1f), transform.position + Vector3.left * (1.1f) + Vector3.down * 2.2f);
     }
 }

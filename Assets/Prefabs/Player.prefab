@@ -269,9 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   speed: 16
-  jumpForce: 20
+  jumpForce: 25
   slideSpeed: 1.5
-  minSlideDuration: 0.2
+  minSlideDuration: 0.1
   maxSlideDuration: 0.7
   slideTimeout: 0.2
   smoothSpeed: 5
@@ -416,7 +416,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
+      maxColor: {r: 0.42211258, g: 0.38492346, b: 0.4716981, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -2750,7 +2750,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.8235294}
+      maxColor: {r: 0.31118724, g: 0.5943396, b: 0.5943396, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5048,7 +5048,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.681, g: 0.681, b: 0.681, a: 0.85882354}
+      maxColor: {r: 0.38431373, g: 0.2627451, b: 0.3137255, a: 0.77254903}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
