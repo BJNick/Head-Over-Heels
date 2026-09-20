@@ -276,7 +276,7 @@ MonoBehaviour:
   smoothSpeed: 5
   projectilePrefab: {fileID: 7210104412840103927, guid: 6ea3c5fc2e636d7469b5c8c4ed10d3d7, type: 3}
   projectileSpawnOffset: {x: 0.81, y: -0.76, z: 0.1}
-  projectileAngle: 15
+  projectileAngle: 10
   projectileBoost: 30
 --- !u!95 &6382968834239207021
 Animator:
