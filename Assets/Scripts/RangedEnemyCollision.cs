@@ -6,13 +6,18 @@ public class RangedEnemyCollision : MonoBehaviour
     [SerializeField] private GameObject gameManager;
     private bool collisionOn = true;
 
-    void OnTriggerEnter2D(Collider2D trigger){
-        if(trigger.gameObject.layer == LayerMask.NameToLayer("Heel")){
+    void OnCollisionEnter2D(Collision2D trigger){
+        if(trigger.collider.gameObject.layer == LayerMask.NameToLayer("Heel")){
             collisionOn = false;
-            Destroy(transform.gameObject, destroyDelay);
+            //Destroy(transform.gameObject, destroyDelay);
+            Invoke("DisableCollider", destroyDelay);
         }
-        else if(trigger.gameObject.layer == LayerMask.NameToLayer("Player") && collisionOn){
+        else if(trigger.collider.gameObject.layer == LayerMask.NameToLayer("Player") && collisionOn){
             GameManager.instance.GameOver();
         }
+    }
+    
+    void DisableCollider(){
+        transform.GetComponent<Collider2D>().enabled = false;
     }
 }

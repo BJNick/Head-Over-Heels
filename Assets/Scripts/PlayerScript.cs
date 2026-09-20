@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         float velX = ((Input.GetAxis("Horizontal")+1) * speed);
         float slideTime = Time.time - slideStartTime;
         
@@ -56,7 +56,7 @@ public class PlayerScript : MonoBehaviour {
         animator.SetBool("Fall", !grounded && rb.linearVelocityY < 0);
         animator.SetBool("Grounded", grounded);
         
-        smoothVelocity = Mathf.Lerp(smoothVelocity, velX, Time.deltaTime * smoothSpeed);
+        smoothVelocity = Mathf.Lerp(smoothVelocity, velX, Time.fixedDeltaTime * smoothSpeed);
         
         rb.linearVelocityX = smoothVelocity;
         
@@ -65,9 +65,6 @@ public class PlayerScript : MonoBehaviour {
         if (grounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             animator.SetTrigger("Jump");
-        }
-        if (Input.GetKeyDown(KeyCode.R)) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         if (Input.GetKey(KeyCode.S) && !isSliding && (Time.time - slideStopTime >= slideTimeout)) {
             animator.SetBool("Slide", true);

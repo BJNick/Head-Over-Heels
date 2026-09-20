@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5474334407441031565}
   - component: {fileID: 1460564693493102736}
   - component: {fileID: -5239094710912063498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.70969987, w: 0.70450425}
   m_LocalPosition: {x: 92.26, y: 0.71, z: 0}
-  m_LocalScale: {x: 0.280306, y: 0.6489339, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecb9ade3fe0f3184ab6ad902b9d3bce2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   lifeSpan: 5
+  gameManager: {fileID: 0}
 --- !u!70 &1460564693493102736
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000004, y: 2.0000007}
+  m_Size: {x: 0.05, y: 0.4}
   m_Direction: 0
 --- !u!50 &-5239094710912063498
 Rigidbody2D:

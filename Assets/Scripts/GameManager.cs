@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            Restart(); 
+        }
+    }
+
     public void GameOver(){
         if(isGameOver) return;
         isGameOver = true;
