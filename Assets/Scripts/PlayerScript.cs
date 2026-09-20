@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        float velX = ((Input.GetAxis("Horizontal")+1) * speed);
+        float velX = speed;//((Input.GetAxis("Horizontal")+1) * speed);
         float slideTime = Time.time - slideStartTime;
         
         if (isSliding) {
@@ -59,26 +59,27 @@ public class PlayerScript : MonoBehaviour {
         smoothVelocity = Mathf.Lerp(smoothVelocity, velX, Time.fixedDeltaTime * smoothSpeed);
         
         rb.linearVelocityX = smoothVelocity;
+
+        animator.speed = 1;//Input.GetAxis("Horizontal")+1;
         
-        animator.speed = Input.GetAxis("Horizontal")+1;
-        
-        if (grounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))) {
+        if (grounded && (Input.GetButtonDown("Jump"))) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             animator.SetTrigger("Jump");
         }
-        if (Input.GetKey(KeyCode.S) && !isSliding && (Time.time - slideStopTime >= slideTimeout)) {
+        Debug.Log(Input.GetButton("Slide") + " " + isSliding + " " + (Time.time - slideStopTime) + " " + slideTimeout);
+        if ((Input.GetButton("Slide")) && !isSliding && (Time.time - slideStopTime >= slideTimeout)) {
             animator.SetBool("Slide", true);
             slideStartTime = Time.time;
             isSliding = true;
         }
-        else if (isSliding && ((Input.GetKeyUp(KeyCode.S) && slideTime >= minSlideDuration) ||
+        else if (isSliding && ((Input.GetButtonUp("Slide") && slideTime >= minSlideDuration) ||
                           (slideTime >= maxSlideDuration))) {
             animator.SetBool("Slide", false);
             isSliding = false;
             slideStopTime = Time.time;
         }
         
-        if (Input.GetKeyDown(KeyCode.F) && !HeelProjectile.heelInScene) {
+        if (Input.GetButtonDown("Fire1") && !HeelProjectile.heelInScene) {
             var obj = Instantiate(projectilePrefab, transform.position + projectileSpawnOffset, Quaternion.identity);
             obj.GetComponent<Rigidbody2D>().linearVelocity = (rb.linearVelocityY * Vector3.up) + (smoothVelocity + projectileBoost) * (Quaternion.Euler(0f, 0f, projectileAngle) * Vector3.right);
         }
