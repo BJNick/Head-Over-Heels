@@ -686,6 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameOverPanel: {fileID: 1681933005}
+  checkpointCoords: {x: 0, y: 0, z: 0}
 --- !u!4 &905422832
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,7 +1693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7070388287242923533, guid: b5cdeb6ace6be394c92d9919f0e39a08, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7070388287242923533, guid: b5cdeb6ace6be394c92d9919f0e39a08, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2496,10 +2497,6 @@ PrefabInstance:
     - target: {fileID: 7070388287242923533, guid: b5cdeb6ace6be394c92d9919f0e39a08, type: 3}
       propertyPath: m_LocalPosition.y
       value: -12.2118
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070388287242923533, guid: b5cdeb6ace6be394c92d9919f0e39a08, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7070388287242923533, guid: b5cdeb6ace6be394c92d9919f0e39a08, type: 3}
       propertyPath: m_LocalRotation.w

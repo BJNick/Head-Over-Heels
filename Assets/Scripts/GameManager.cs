@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        checkpointCoords = Vector3.zero;
+        
         // If an instance already exists and it's not this one, destroy the duplicate
         if (Instance != null && Instance != this)
         {
