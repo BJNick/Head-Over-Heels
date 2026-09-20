@@ -3,7 +3,6 @@ using UnityEngine;
 public class RangedEnemyCollision : MonoBehaviour
 {
     public float destroyDelay = 1f;
-    [SerializeField] private GameObject gameManager;
     private bool collisionOn = true;
 
     void OnCollisionEnter2D(Collision2D trigger){
@@ -13,7 +12,7 @@ public class RangedEnemyCollision : MonoBehaviour
             Invoke("DisableCollider", destroyDelay);
         }
         else if(trigger.collider.gameObject.layer == LayerMask.NameToLayer("Player") && collisionOn){
-            GameManager.instance.GameOver();
+            GameManager.Instance.GameOver();
         }
     }
     

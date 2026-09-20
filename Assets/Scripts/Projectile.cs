@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger){
         if(trigger.CompareTag("Player")){
-            GameManager.instance.GameOver();
+            GameManager.Instance.GameOver();
         }
         Destroy(gameObject);
     }
